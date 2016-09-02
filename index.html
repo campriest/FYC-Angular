@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Cantarell|Fjalla+One|Lato" rel="stylesheet">
+</head>
+
+<style>
+
+#mainHead {
+position:fixed;
+top:0px;
+left:0px;
+width: 100%;
+height: 20px;
+<!-- background: rgb(200,200,200); -->
+}
+
+#mainHead p{
+    position: fixed;
+    margin-left: 45%;
+    margin-top: 5px;
+    font-size: 40px;
+    font-family: 'Fjalla One', sans-serif;
+    letter-spacing: 2px;
+
+}
+
+
+input.ng-valid {
+    width: 150px;
+    height: 20px;
+
+    border: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    font-size:20px;
+    font-family: 'Cantarell', sans-serif;
+    outline:none;
+
+}
+input.ng-invalid{
+    width:150px;
+    height:20px;
+    border:solid;
+    border-width:1px;
+    border-radius: 10px;
+    font-size:20px;
+    font-family: 'Cantarell', sans-serif;
+    outline:none;
+}
+</style>
+
+<body>
+
+<!-- <div id = "back">
+</div> -->
+
+
+
+
+
+    <div id = "mainHead">
+        <p>F-Y-C</p>
+
+    </div>
+
+
+        <div ng-app = "myDisplay" ng-controller = "myControl">
+
+                <p ng-style = "fontStyle"> <input type = "text" ng-model = "search" required></p>
+                <p ng-style = "searchBar" ng-bind = "search"></p>
+
+
+        </div>
+
+
+<script>
+
+    var app = angular.module("myDisplay", []);
+    app.controller("myControl", function($scope){
+
+
+
+        $scope.searchBar = {
+
+            "postition" : "absolute",
+
+            "margin-top" : "250px",
+            "margin-left" : "475px",
+            "font-size" : "50px",
+            "height": "100%",
+            "width": "100%",
+
+
+
+
+
+        }
+
+
+        $scope.fontStyle = {
+            "position": "absolute",
+
+            "top": "0px",
+            "margin-top": "-10px",
+            "margin-left": "10px",
+            "font-size" : "40px",
+
+        }
+
+    });
+</script>
+
+</body>
+
+</html>
