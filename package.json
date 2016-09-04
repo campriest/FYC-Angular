@@ -1,0 +1,21 @@
+
+{
+    "name" : "FYC",
+    "version" : "0.0.0",
+    "private" : "true",
+    "description": "proto app",
+    "main" : "server.js",
+    "author" : "Cameron",
+
+    "dependencies" : {
+
+        "express" : "^4.14.0",
+        "body-parser": "^1.15.1",
+        "debug": "^2.2.0",
+        "morgan": "^1.7.0"
+
+
+        }
+
+
+}
