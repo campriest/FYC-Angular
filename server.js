@@ -8,9 +8,11 @@ var bodyParser = require('body-parser');
 
 
 
+app.use(express.static(__dirname + '/views'));
+
 app.get('/', function(req, res){
 
-    res.sendFile(path.join(__dirname + '/index.html'));
+    res.sendFile('/index.html');
 
 });
 // router.get('/', function(req, res, next){
