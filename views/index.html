@@ -107,7 +107,10 @@ input.ng-invalid{
 
                     <div ng-style  = "menuStyle" ng-show = "showMenu">
                         <h1 ng-click = "closeMenu()" ng-style = "xStyle">X</h1>
-                        <h2 ng-style = "logStyle">Log In</h2>
+                        <h2 ng-click = "logIn()" ng-style = "logStyle">Log In</h2>
+
+                        <p ng-style = "userStyle" >User : <input type = "text" placeholder = "Name"></p>
+                        <p ng-style = "passwordStyle" >Password : <input type = "text" placeholder = "Password"></p>
 
                     </div>
 
@@ -243,7 +246,37 @@ input.ng-invalid{
 
 
         }
+        $scope.userStyle = {
+            "display" : "none"
 
+
+        }
+        $scope.passwordStyle = {
+            "display" : "none"
+        }
+
+        $scope.logIn = function(){
+
+            $scope.logStyle ={
+                "display" : "none"
+            }
+
+            $scope.userStyle = {
+                "display" : "inline",
+                "position" : "absolute",
+                "margin-top" : "20px"
+            }
+
+            $scope.passwordStyle = {
+                "display": "inline",
+                "position" : "absolute",
+                "margin-top" : "40px"
+
+            }
+
+
+
+        }
         $scope.menu = function(){
 
 
