@@ -9,15 +9,16 @@ var bodyParser = require('body-parser');
 var pg = require('pg');
 
 var connectString= "postgres://fyc_master:fycmaster@localhost/fycdata";
-var pgClient = new pg.Client(connectstring);
+var pgClient = new pg.Client(connectString);
+
 pgClient.connect();
-var query = pgCient.query();
+// var query = pgClient.query();
 
 app.use(express.static(__dirname + '/views'));
 
-app.get('/', function(req, res){
+app.get('/', (req, res) =>{
 
-    pg.connect(connect, function(err, client, done){
+    pg.connect(connect, (err, client, done) =>{
         if(err){
 
             return console.error("error fetching", err);
@@ -27,34 +28,34 @@ app.get('/', function(req, res){
 
     })
 
-    res.sendFile('/index.html');
+    res.sendFile(__dirname + '/index.html');
 
 });
 
 var signUp = express.Router();
 
-    signUp.get('', function(req, res){
+    signUp.get('', (req, res) =>{
 
 
     });
 
 
-    signUp.post('', function(req, res){
+    signUp.post('', (req, res) =>{
 
     });
 
-var albumLoad = express.Routher();
+var albumLoad = express.Router();
 
-    albumLoad.get('', function(req, res){
+    albumLoad.get('', (req, res) =>{
 
-
-    });
-
-    albumLoad.post('', function(req, res){
 
     });
 
-    albumLoad.patch('', function(req, res){
+    albumLoad.post('', (req, res) =>{
+
+    });
+
+    albumLoad.patch('', (req, res) =>{
 
 
     });

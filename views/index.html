@@ -5,6 +5,7 @@
 <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Cantarell|Fjalla+One|Lato" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 
 </head>
 
@@ -77,7 +78,7 @@ input.ng-invalid{
 
                 <p ng-style = "fontStyle"> <input type = "text" ng-model = "search" required></p>
                 <p  ng-bind = "search"></p>
-                <button ng-style = "buttonStyle" ng-click = "">+</button>
+                <button ng-style = "buttonStyle"  ng-click = "clickFunction()">+</button>
 
 
                     <div class = "secondBar">
@@ -104,9 +105,9 @@ input.ng-invalid{
 
                     </div>
 
-                    <div ng-show = "showMenu">
-
-                    
+                    <div ng-style  = "menuStyle" ng-show = "showMenu">
+                        <h1 ng-click = "closeMenu()" ng-style = "xStyle">X</h1>
+                        <h2 ng-style = "logStyle">Log In</h2>
 
                     </div>
 
@@ -133,6 +134,26 @@ input.ng-invalid{
 
         }
 
+        $scope.xStyle = {
+            "position" : "absolute",
+            "margin-top" : "5px",
+            "margin-left" : "120px",
+            "font-family" : "Varela Round, sans-serif",
+            "font-size" : "22px"
+
+
+        }
+
+        $scope.logStyle = {
+
+            "position" : "absolute",
+            "margin-top" : "35px",
+            "margin-left" : "6px",
+            "font-family" : ""
+
+
+        }
+
         $scope.buttonStyle ={
 
             "position" : "absolute",
@@ -150,6 +171,10 @@ input.ng-invalid{
             "font-size" : "30px",
             "font-family": "'Cantarell', sans-serif"
         }
+
+
+
+
 
         $scope.news = "News";
 
@@ -183,6 +208,39 @@ input.ng-invalid{
             "margin-left" : "55%",
             "font-size" : "25px",
             "font-family" : "'Cantarell', sans-serif"
+
+        }
+
+
+        $scope.showMenu = false;
+
+        $scope.clickFunction = function(){
+            $scope.showMenu = !$scope.showMenu;
+            console.log("work");
+
+
+
+        }
+
+        $scope.closeMenu = function(){
+
+                $scope.showMenu = !$scope.showMenu;
+
+
+        }
+        $scope.menuStyle = {
+            "display": "inline",
+            "position" : "absolute",
+            "top" : "0px",
+            "left": "85%",
+            "margin-left" : "40px",
+
+            "width" : "200px",
+            "height" : "100%",
+            "background-color" : "rgb(220,220,220)",
+            "font-family": "'Cantarell', sans-serif"
+
+
 
         }
 
