@@ -53,6 +53,10 @@ input.ng-invalid{
     font-family: 'Cantarell', sans-serif;
     outline:none;
 }
+.userBox.input.ng-invalid{
+    border-radius: 10px;
+    outline:none;
+}
 
 
 </style>
@@ -109,8 +113,8 @@ input.ng-invalid{
                         <h1 ng-click = "closeMenu()" ng-style = "xStyle">X</h1>
                         <h2 ng-click = "logIn()" ng-style = "logStyle">Log In</h2>
 
-                        <p ng-style = "userStyle" >User : <input type = "text" placeholder = "Name"></p>
-                        <p ng-style = "passwordStyle" >Password : <input type = "text" placeholder = "Password"></p>
+                        <p ng-class = "userBox" ng-style = "userStyle" >User : <br><input type = "text" placeholder = "Name"></p>
+                        <p ng-style = "passwordStyle" >Password : <br><input type = "text" placeholder = "Password"></p>
 
                     </div>
 
@@ -238,7 +242,7 @@ input.ng-invalid{
             "left": "85%",
             "margin-left" : "40px",
 
-            "width" : "200px",
+            "width" : "400px",
             "height" : "100%",
             "background-color" : "rgb(220,220,220)",
             "font-family": "'Cantarell', sans-serif"
@@ -264,13 +268,17 @@ input.ng-invalid{
             $scope.userStyle = {
                 "display" : "inline",
                 "position" : "absolute",
-                "margin-top" : "20px"
+                "margin-top" : "20px",
+                "margin-left" : "5px",
+
+
             }
 
             $scope.passwordStyle = {
                 "display": "inline",
                 "position" : "absolute",
-                "margin-top" : "40px"
+                "margin-top" : "65px",
+                "margin-left" : "5px"
 
             }
 

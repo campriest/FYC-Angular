@@ -5,32 +5,36 @@ var router = express.Router();
 var path = require('path');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var hbs = require('hbs');
 
-var pg = require('pg');
+app.set('view engine', 'html');
+app.engine('html', hbs.__express);
 
-var connectString= "postgres://fyc_master:fycmaster@localhost/fycdata";
-var pgClient = new pg.Client(connectString);
 
-pgClient.connect();
-// var query = pgClient.query();
 
-app.use(express.static(__dirname + '/views'));
+
+// app.use('/', express.static(__dirname + '/views'));
+// app.use('/news', express.static(__dirname + '/views'));
+// app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) =>{
-
-    pg.connect(connect, (err, client, done) =>{
-        if(err){
-
-            return console.error("error fetching", err);
-        }
-
-
-
-    })
-
-    res.sendFile(__dirname + '/index.html');
-
+    res.render('index');
 });
+
+
+
+app.get('/news', (req, res) =>{
+    res.render('news');
+});
+
+app.get('/yours', (req, res) =>{
+    res.render('yours');
+});
+
+app.get('/select', (req, res) =>{
+    res.render('select');
+});
+
 
 var signUp = express.Router();
 
