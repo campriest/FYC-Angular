@@ -53,10 +53,10 @@ input.ng-invalid{
     font-family: 'Cantarell', sans-serif;
     outline:none;
 }
-.userBox.input.ng-invalid{
+<!-- .userBox.input.ng-invalid{
     border-radius: 10px;
     outline:none;
-}
+} -->
 
 
 </style>
@@ -80,16 +80,22 @@ input.ng-invalid{
 
         <div ng-app = "myDisplay" ng-controller = "myControl">
 
-                <p ng-style = "fontStyle"> <input type = "text" ng-model = "search" required></p>
-                <p  ng-bind = "search"></p>
+                <p ng-click = "searchClick()" ng-style = "fontStyle"> <input type = "text" ng-model = "search" required></p>
+
+                        <div id = "searchPage">
+
+                            <p  ng-bind = "search"></p>
+
+                        </div>
+
                 <button ng-style = "buttonStyle"  ng-click = "clickFunction()">+</button>
 
 
                     <div class = "secondBar">
 
 
-                            <p ng-model = "news"></p>
-                            <p ng-style = "newsStyle" ng-bind = "news"></p>
+                            <p  ng-model = "news"></p>
+                            <p ng-style = "newsStyle" ng-bind = "news" ng-click = "newsGo()"><a ng-href = "#news"></a></p>
 
 
                             <p ng-model = "yours"></p>
@@ -123,12 +129,43 @@ input.ng-invalid{
 
 <script>
 
-    var app = angular.module("myDisplay", []);
+
+
+
+
+    var app = angular.module("myDisplay", ["ngRoute"]);
+
+
+        app.config(function($routeProvider){
+            $routeProvider
+
+            .when("/news", {
+                templateUrl : "news.html"
+
+
+
+            });
+
+
+});
+
+
+
+
+
+
+
+
     app.controller("myControl", function($scope){
 
 
 
+        $scope.searchClick = function(){
+            ""
 
+
+
+        }
 
 
         $scope.fontStyle = {
@@ -256,7 +293,8 @@ input.ng-invalid{
 
         }
         $scope.passwordStyle = {
-            "display" : "none"
+            "display" : "none",
+
         }
 
         $scope.logIn = function(){
@@ -274,6 +312,7 @@ input.ng-invalid{
 
             }
 
+
             $scope.passwordStyle = {
                 "display": "inline",
                 "position" : "absolute",
@@ -288,7 +327,15 @@ input.ng-invalid{
         $scope.menu = function(){
 
 
+
         }
+
+        $scope.newsGo = function(){
+                console.log("works");
+
+
+        }
+
     });
 
 </script>
