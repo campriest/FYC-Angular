@@ -16,6 +16,9 @@ app.engine('html', hbs.__express);
 // app.use('/', express.static(__dirname + '/views'));
 // app.use('/news', express.static(__dirname + '/views'));
 // app.set('views', path.join(__dirname, 'views'));
+app.use('/css', express.static(__dirname + "/css"));
+app.use('/js', express.static(__dirname + "/js"));
+app.use( express.static('views'));
 
 app.get('/', (req, res) =>{
     res.render('index');
@@ -23,17 +26,20 @@ app.get('/', (req, res) =>{
 
 
 
-app.get('/news', (req, res) =>{
-    res.render('news');
-});
 
-app.get('/yours', (req, res) =>{
-    res.render('yours');
-});
 
-app.get('/select', (req, res) =>{
-    res.render('select');
-});
+//
+// app.get('/news', (req, res) =>{
+//     res.render('news');
+// });
+//
+// app.get('/yours', (req, res) =>{
+//     res.render('yours');
+// });
+//
+// app.get('/select', (req, res) =>{
+//     res.render('select');
+// });
 
 
 var signUp = express.Router();

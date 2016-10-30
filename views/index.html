@@ -1,65 +1,30 @@
 <!DOCTYPE html>
-<html >
+<html lang = "en" ng-app = 'myDisplay'>
 
 <head>
-<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-<script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
+<link href = "./css/style.css" rel = "stylesheet" type = "text/css" media = "screen">
+
+
+
+<script src  = "http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src  = "http://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.min.js"></script>
+
+<!-- <link href  = "FYC/main.js" type = "text/javascript"> -->
+
+
 <link href="https://fonts.googleapis.com/css?family=Cantarell|Fjalla+One|Lato" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 
+
+
+
+<script src = "./js/app.js" type = "text/javascript" media = "screen"></script>
+
+
+
 </head>
 
-<style>
 
-#mainHead {
-position:fixed;
-top:0px;
-left:0px;
-width: 100%;
-height: 20px;
-<!-- background: rgb(200,200,200); -->
-}
-
-#mainHead p{
-    position: fixed;
-    margin-left: 45%;
-    margin-top: 20px;
-    font-size: 40px;
-    font-family: 'Fjalla One', sans-serif;
-    letter-spacing: 2px;
-
-}
-
-
-input.ng-valid {
-    width: 150px;
-    height: 20px;
-
-    border: solid;
-    border-width: 1px;
-    border-radius: 10px;
-    font-size:20px;
-    font-family: 'Cantarell', sans-serif;
-    outline:none;
-
-}
-input.ng-invalid{
-    width:150px;
-    height:20px;
-    border:solid;
-    border-width:1px;
-    border-radius: 10px;
-    font-size:20px;
-    font-family: 'Cantarell', sans-serif;
-    outline:none;
-}
-<!-- .userBox.input.ng-invalid{
-    border-radius: 10px;
-    outline:none;
-} -->
-
-
-</style>
 
 <body>
 
@@ -70,273 +35,65 @@ input.ng-invalid{
 
 
 
-    <div id = "mainHead">
-        <p>F-Y-C</p>
-
-    </div>
 
 
 
 
-        <div ng-app = "myDisplay" ng-controller = "myControl">
 
-                <p ng-click = "searchClick()" ng-style = "fontStyle"> <input type = "text" ng-model = "search" required></p>
+        <div ng-controller = "myControl">
+
+            <div ng-style = "mainStyle" id = "mainHead">
+                <p ng-style = "headStyle" ng-bind = "fyc"></p>
+
+            </div>
+
+                <form>
+                <p ng-click = "searchClick()" ng-style = "fontStyle"  ><input  type = "text" ng-model = "search"  required></p>
 
                         <div id = "searchPage">
-
-                            <p  ng-bind = "search"></p>
-
                         </div>
+                </form>
 
-                <button ng-style = "buttonStyle"  ng-click = "clickFunction()">+</button>
-
-
-                    <div class = "secondBar">
+                            <button ng-style = "buttonStyle"  ng-click = "clickFunction()">+</button>
 
 
-                            <p  ng-model = "news"></p>
-                            <p ng-style = "newsStyle" ng-bind = "news" ng-click = "newsGo()"><a ng-href = "#news"></a></p>
-
-
-                            <p ng-model = "yours"></p>
-                            <p ng-style = "yoursStyle" ng-bind = "yours"></p>
-
-                            <p ng-model = "select"></p>
-                            <p ng-style = "selectStyle" ng-bind = "select"></p>
+                                <div class = "secondBar">
 
 
 
+                                    <p ng-href = "#news" ng-style = "newsStyle" ng-bind = "news" ng-click = "newsGo()" ></p>
 
 
 
+                                    <p ng-style = "yoursStyle" ng-bind = "yours"></p>
+
+
+                                    <p ng-style = "selectStyle" ng-bind = "select"></p>
+
+                                </div>
+
+
+    <div ng-view></div>
+                                        <div ng-style  = "menuStyle" ng-show = "showMenu">
+                                            <h1 ng-click = "closeMenu()" ng-style = "xStyle">X</h1>
+                                            <h2 ng-click = "logIn()" ng-style = "logStyle">Log In</h2>
+
+                                            <p ng-class = "userBox" ng-style = "userStyle" >User : <br><input type = "text" placeholder = "Name"></p>
+                                            <p ng-style = "passwordStyle" >Password : <br><input type = "text" placeholder = "Password"></p>
+
+                                        </div>
 
 
 
-
-                    </div>
-
-                    <div ng-style  = "menuStyle" ng-show = "showMenu">
-                        <h1 ng-click = "closeMenu()" ng-style = "xStyle">X</h1>
-                        <h2 ng-click = "logIn()" ng-style = "logStyle">Log In</h2>
-
-                        <p ng-class = "userBox" ng-style = "userStyle" >User : <br><input type = "text" placeholder = "Name"></p>
-                        <p ng-style = "passwordStyle" >Password : <br><input type = "text" placeholder = "Password"></p>
-
-                    </div>
 
         </div>
 
 
+
+
+
 <script>
 
-
-
-
-
-    var app = angular.module("myDisplay", ["ngRoute"]);
-
-
-        app.config(function($routeProvider){
-            $routeProvider
-
-            .when("/news", {
-                templateUrl : "news.html"
-
-
-
-            });
-
-
-});
-
-
-
-
-
-
-
-
-    app.controller("myControl", function($scope){
-
-
-
-        $scope.searchClick = function(){
-            ""
-
-
-
-        }
-
-
-        $scope.fontStyle = {
-            "position": "absolute",
-
-            "top": "0px",
-            "margin-top": "15px",
-            "margin-left": "10px",
-            "font-size" : "40px",
-
-        }
-
-        $scope.xStyle = {
-            "position" : "absolute",
-            "margin-top" : "5px",
-            "margin-left" : "175px",
-            "font-family" : "Varela Round, sans-serif",
-            "font-size" : "22px"
-
-
-        }
-
-        $scope.logStyle = {
-
-            "position" : "absolute",
-            "margin-top" : "35px",
-            "margin-left" : "6px",
-            "font-family" : ""
-
-
-        }
-
-        $scope.buttonStyle ={
-
-            "position" : "absolute",
-            "top": "0px",
-            "margin-top" : "25px",
-            "margin-left": "90%",
-            "width" : "50px",
-            "height" : "50px",
-            "background-color": "rgb(200,200,200)",
-            "border-color": "rgb(0,0,0)",
-            "border-width": "1px",
-            "border-style": "solid",
-            "border-radius": "50%",
-            "outline": "none",
-            "font-size" : "30px",
-            "font-family": "'Cantarell', sans-serif"
-        }
-
-
-
-
-
-        $scope.news = "News";
-
-        $scope.newsStyle = {
-
-            "position" : "absolute",
-            "margin-top": "80px",
-            "margin-left": "45.6%",
-            "font-size" : "25px",
-            "font-family" : "'Cantarell', sans-serif"
-
-        }
-
-
-        $scope.yours = "Yours";
-
-        $scope.yoursStyle = {
-
-            "position" : "absolute",
-            "margin-top" : "80px",
-            "margin-left" : "35%",
-            "font-size" : "25px",
-            "font-family" : "'Cantarell', sans-serif"
-        }
-
-        $scope.select = "Select";
-
-        $scope.selectStyle ={
-            "position" : "absolute",
-            "margin-top" : "80px",
-            "margin-left" : "55%",
-            "font-size" : "25px",
-            "font-family" : "'Cantarell', sans-serif"
-
-        }
-
-
-        $scope.showMenu = false;
-
-        $scope.clickFunction = function(){
-            $scope.showMenu = !$scope.showMenu;
-            console.log("work");
-
-
-
-        }
-
-        $scope.closeMenu = function(){
-
-                $scope.showMenu = !$scope.showMenu;
-
-
-        }
-        $scope.menuStyle = {
-            "display": "inline",
-            "position" : "absolute",
-            "top" : "0px",
-            "left": "80%",
-            "margin-left" : "40px",
-
-            "width" : "203px",
-            "height" : "100%",
-            "background-color" : "rgb(220,220,220)",
-            "font-family": "'Cantarell', sans-serif"
-
-
-
-        }
-        $scope.userStyle = {
-            "display" : "none"
-
-
-        }
-        $scope.passwordStyle = {
-            "display" : "none",
-
-        }
-
-        $scope.logIn = function(){
-
-            $scope.logStyle ={
-                "display" : "none"
-            }
-
-            $scope.userStyle = {
-                "display" : "inline",
-                "position" : "absolute",
-                "margin-top" : "20px",
-                "margin-left" : "5px",
-
-
-            }
-
-
-            $scope.passwordStyle = {
-                "display": "inline",
-                "position" : "absolute",
-                "margin-top" : "65px",
-                "margin-left" : "5px"
-
-            }
-
-
-
-        }
-        $scope.menu = function(){
-
-
-
-        }
-
-        $scope.newsGo = function(){
-                console.log("works");
-
-
-        }
-
-    });
 
 </script>
 
